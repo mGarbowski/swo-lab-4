@@ -13,6 +13,7 @@ Include(FetchContent)
 add_executable(
         WhiteBearUnitTests
         ItemUnitTests.cpp
+        TicketUnitTests.cpp
         LegendaryUnitTests.cpp
         CheeseBrieUnitTests.cpp
 )
