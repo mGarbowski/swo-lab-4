@@ -1,9 +1,11 @@
 #include "CheeseBrie.h"
 
 void CheeseBrie::updateQuality() {
-    quality = min(MAX_VALUE, quality + 1);
+    incrementQuality(1);
     daysRemaining--;
-    if (daysRemaining < MIN_DAYS) { quality = min(MAX_VALUE, quality + 1); }
+    if (daysRemaining < MIN_DAYS) {
+        incrementQuality(1);
+    }
 
 }
 
