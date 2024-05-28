@@ -19,8 +19,8 @@ class Item {
 public:
   Item(string name, int daysRemaining, int quality)
       : name(std::move(name)), daysRemaining(daysRemaining), quality(quality) {}
-  friend class WhiteBear;
   std::string toString() const;
+  void updateQuality();
 
 
 private:

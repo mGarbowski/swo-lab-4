@@ -12,6 +12,27 @@ std::ostream &operator<<(std::ostream &s, Item &item) {
   return s;
 }
 
+
+void Item::updateQuality() {
+    if (name == VEST) {
+        quality = max(MIN_VALUE, quality - 1);
+        daysRemaining--;
+        if (daysRemaining < MIN_DAYS) { quality = max(MIN_VALUE, quality - 1); }
+    }
+    if (name == CHEESE_BRIE) {
+        quality = min(MAX_VALUE, quality + 1);
+        daysRemaining--;
+        if (daysRemaining < MIN_DAYS) { quality = min(MAX_VALUE, quality + 1); }
+    }
+    if (name == TICKETS) {
+        quality = min(MAX_VALUE, quality + 1);
+        if (daysRemaining < CONCERT_THRESHOLD_1) { quality = min(MAX_VALUE, quality + 1); }
+        if (daysRemaining < CONCERT_THRESHOLD_2) { quality = min(MAX_VALUE, quality + 1); }
+        daysRemaining--;
+        if (daysRemaining < MIN_DAYS) { quality = MIN_VALUE; }
+    }
+}
+
 /**
 const std::string CHEESE_BRIE = "Cheese Brie";
 const std::string TICKETS = "Tickets to a concert";
@@ -20,23 +41,7 @@ const std::string LEGOLAS = "Legolas, Hand of Gollum";
 
 void WhiteBear::updateQuality() {
   for (auto & item : items_) {
-      if (item.name == VEST) {
-          item.quality = max(MIN_VALUE, item.quality - 1);
-          item.daysRemaining--;
-          if (item.daysRemaining < MIN_DAYS) { item.quality = max(MIN_VALUE, item.quality - 1); }
-      }
-      if (item.name == CHEESE_BRIE) {
-          item.quality = min(MAX_VALUE, item.quality + 1);
-          item.daysRemaining--;
-          if (item.daysRemaining < MIN_DAYS) { item.quality = min(MAX_VALUE, item.quality + 1); }
-      }
-      if (item.name == TICKETS) {
-          item.quality = min(MAX_VALUE, item.quality + 1);
-          if (item.daysRemaining < CONCERT_THRESHOLD_1) { item.quality = min(MAX_VALUE, item.quality + 1); }
-          if (item.daysRemaining < CONCERT_THRESHOLD_2) { item.quality = min(MAX_VALUE, item.quality + 1); }
-          item.daysRemaining--;
-          if (item.daysRemaining < MIN_DAYS) { item.quality = MIN_VALUE; }
-      }
+      item.updateQuality();
   }
 }
 
@@ -49,11 +54,9 @@ void WhiteBear::printItems() {
 }
 
 void WhiteBear::printItems(std::ostream& output) {
-  for (auto & item : items_) {
-    //output << *i << std::endl;
-	std::string s;
-	output << item.name << ", " << item.daysRemaining << ", " << item.quality << std::endl;
-  }
-  output << std::endl;
+    for (auto &item: items_) {
+        output << item;
+    }
+    output << std::endl;
 }
 
