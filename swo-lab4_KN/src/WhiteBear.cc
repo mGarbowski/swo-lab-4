@@ -13,47 +13,47 @@ const std::string item3 = "Legolas, Hand of Gollum";
 */
 
 void WhiteBear::updateQuality() {
-  for (unsigned i = 0; i < items_.size(); i++) {
-    if (items_[i].t != item1 && items_[i].t != item2) {
-      if (items_[i].v > 0) {
-        if (items_[i].t != item3) {
-          items_[i].v -= 1;
+  for (auto & item : items_) {
+    if (item.t != item1 && item.t != item2) {
+      if (item.v > 0) {
+        if (item.t != item3) {
+          item.v -= 1;
         }
       }
     } else {
-      if (items_[i].v < 50) {
-        items_[i].v = items_[i].v + 1;
-        if (items_[i].t == item2) {
-          if (items_[i].d < 11) {
-            if (items_[i].v < 50) {
-              items_[i].v += 1;
+      if (item.v < 50) {
+        item.v = item.v + 1;
+        if (item.t == item2) {
+          if (item.d < 11) {
+            if (item.v < 50) {
+              item.v += 1;
             }
           }
-          if (items_[i].d < 6) {
-            if (items_[i].v < 50) {
-              items_[i].v++;
+          if (item.d < 6) {
+            if (item.v < 50) {
+              item.v++;
             }
           }
         }
       }
     }
-    if (items_[i].t != item3) {
-      --items_[i].d;
+    if (item.t != item3) {
+      --item.d;
     }
-    if (items_[i].d < 0) {
-      if (items_[i].t != item1) {
-        if (items_[i].t != item2) {
-          if (items_[i].v > 0) {
-            if (items_[i].t != item3) {
-              items_[i].v = items_[i].v - 1;
+    if (item.d < 0) {
+      if (item.t != item1) {
+        if (item.t != item2) {
+          if (item.v > 0) {
+            if (item.t != item3) {
+              item.v = item.v - 1;
             }
           }
         } else {
-          items_[i].v = items_[i].v - items_[i].v;
+          item.v = item.v - item.v;
         }
       } else {
-        if (items_[i].v < 50) {
-          ++items_[i].v;
+        if (item.v < 50) {
+          ++item.v;
         }
       }
     }
@@ -63,16 +63,16 @@ void WhiteBear::updateQuality() {
 void WhiteBear::addItem(const Item &item) { items_.push_back(item); }
 
 void WhiteBear::printItems() {
-  for (vector<Item>::iterator i = items_.begin(); i != items_.end(); i++) {
-    std::cout << *i << std::endl;
+  for (auto & item : items_) {
+    std::cout << item << std::endl;
   }
 }
 
 void WhiteBear::printItems(std::ostream& output) {
-  for (unsigned i = 0; i < items_.size(); i++) {
+  for (auto & item : items_) {
     //output << *i << std::endl;
 	std::string s;
-	output << items_[i].t << ", " << items_[i].d << ", " << items_[i].v << std::endl;
+	output << item.t << ", " << item.d << ", " << item.v << std::endl;
   }
   output << std::endl;
 }
