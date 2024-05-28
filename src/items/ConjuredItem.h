@@ -6,7 +6,7 @@
 
 class ConjuredItem : public Item {
 public:
-    ConjuredItem(const string &name, int daysRemaining, int quality);
+    ConjuredItem(const std::string &name, int daysRemaining, int quality);
 
     void updateQuality() override;
 };

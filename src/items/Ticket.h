@@ -10,7 +10,7 @@ class Ticket : public Item {
 public:
     void updateQuality() override;
 
-    Ticket(const string &name, int daysRemaining, int quality);
+    Ticket(const std::string &name, int daysRemaining, int quality);
 };
 
 

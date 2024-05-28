@@ -15,4 +15,4 @@ void Ticket::updateQuality() {
     }
 }
 
-Ticket::Ticket(const string &name, int daysRemaining, int quality) : Item(name, daysRemaining, quality) {}
+Ticket::Ticket(const std::string &name, int daysRemaining, int quality) : Item(name, daysRemaining, quality) {}

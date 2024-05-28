@@ -13,27 +13,25 @@
 #define MIN_DAYS 0
 
 
-using namespace std;
-
 class Item {
 public:
-    Item(string name, int daysRemaining, int quality)
+    Item(std::string name, int daysRemaining, int quality)
             : name(std::move(name)), daysRemaining(daysRemaining), quality(quality) {}
 
     virtual ~Item() = default;
 
-    string toString() const;
+    std::string toString() const;
 
     virtual void updateQuality();
 
-    const string &getName() const;
+    const std::string &getName() const;
 
     int getDaysRemaining() const;
 
     int getQuality() const;
 
 protected:
-    string name;
+    std::string name;
     int daysRemaining;
     int quality;
 
@@ -42,7 +40,7 @@ protected:
     void incrementQuality(int amount);
 };
 
-ostream &operator<<(ostream &s, Item &item);
+std::ostream &operator<<(std::ostream &s, Item &item);
 
 using UItem = std::unique_ptr<Item>;
 

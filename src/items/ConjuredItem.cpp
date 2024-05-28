@@ -8,4 +8,4 @@ void ConjuredItem::updateQuality() {
     }
 }
 
-ConjuredItem::ConjuredItem(const string &name, int daysRemaining, int quality) : Item(name, daysRemaining, quality) {}
+ConjuredItem::ConjuredItem(const std::string &name, int daysRemaining, int quality) : Item(name, daysRemaining, quality) {}

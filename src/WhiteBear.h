@@ -8,10 +8,6 @@
 #include <memory>
 #include "items/Item.h"
 
-using namespace std;
-
-class WhiteBear;
-
 
 class WhiteBear {
 public:
@@ -24,7 +20,7 @@ public:
     void updateQuality();
 
 private:
-    vector<UItem> items_;
+    std::vector<UItem> items_;
 };
 
 

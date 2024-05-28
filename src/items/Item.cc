@@ -1,7 +1,7 @@
 #include "Item.h"
 
-string Item::toString() const {
-    stringstream result;
+std::string Item::toString() const {
+    std::stringstream result;
     result << name << ", " << daysRemaining << ", " << quality;
     return result.str();
 }
@@ -14,7 +14,7 @@ void Item::updateQuality() {
     }
 }
 
-const string &Item::getName() const {
+const std::string &Item::getName() const {
     return name;
 }
 
@@ -27,11 +27,11 @@ int Item::getQuality() const {
 }
 
 void Item::decrementQuality(int amount) {
-    quality = max(MIN_VALUE, quality - amount);
+    quality = std::max(MIN_VALUE, quality - amount);
 }
 
 void Item::incrementQuality(int amount) {
-    quality = min(MAX_VALUE, quality + amount);
+    quality = std::min(MAX_VALUE, quality + amount);
 }
 
 std::ostream &operator<<(std::ostream &s, Item &item) {

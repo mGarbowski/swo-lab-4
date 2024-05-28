@@ -9,4 +9,4 @@ void CheeseBrie::updateQuality() {
 
 }
 
-CheeseBrie::CheeseBrie(const string &name, int daysRemaining, int quality) : Item(name, daysRemaining, quality) {}
+CheeseBrie::CheeseBrie(const std::string &name, int daysRemaining, int quality) : Item(name, daysRemaining, quality) {}

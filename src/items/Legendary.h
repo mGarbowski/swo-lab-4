@@ -5,7 +5,7 @@
 
 class Legendary : public Item {
 public:
-    Legendary(const string &name, int daysRemaining, int quality);
+    Legendary(const std::string &name, int daysRemaining, int quality);
 
     void updateQuality() override;
 };
