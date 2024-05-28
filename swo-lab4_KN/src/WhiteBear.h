@@ -1,5 +1,11 @@
 #ifndef WHITE_BEAR_H
 #define WHITE_BEAR_H
+#define MIN_VALUE 0
+#define MAX_VALUE 50
+#define MIN_DAYS 0
+#define CONCERT_THRESHOLD_1 11
+#define CONCERT_THRESHOLD_2 6
+
 #include <iostream>
 #include <string>
 #include <utility>

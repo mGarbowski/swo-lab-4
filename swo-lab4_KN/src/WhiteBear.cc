@@ -20,49 +20,23 @@ const std::string LEGOLAS = "Legolas, Hand of Gollum";
 
 void WhiteBear::updateQuality() {
   for (auto & item : items_) {
-    if (item.name != CHEESE_BRIE && item.name != TICKETS) {
-      if (item.quality > 0) {
-        if (item.name != LEGOLAS) {
-          item.quality -= 1;
-        }
+      if (item.name == VEST) {
+          item.quality = max(MIN_VALUE, item.quality - 1);
+          item.daysRemaining--;
+          if (item.daysRemaining < MIN_DAYS) { item.quality = max(MIN_VALUE, item.quality - 1); }
       }
-    } else {
-      if (item.quality < 50) {
-        item.quality = item.quality + 1;
-        if (item.name == TICKETS) {
-          if (item.daysRemaining < 11) {
-            if (item.quality < 50) {
-              item.quality += 1;
-            }
-          }
-          if (item.daysRemaining < 6) {
-            if (item.quality < 50) {
-              item.quality++;
-            }
-          }
-        }
+      if (item.name == CHEESE_BRIE) {
+          item.quality = min(MAX_VALUE, item.quality + 1);
+          item.daysRemaining--;
+          if (item.daysRemaining < MIN_DAYS) { item.quality = min(MAX_VALUE, item.quality + 1); }
       }
-    }
-    if (item.name != LEGOLAS) {
-      --item.daysRemaining;
-    }
-    if (item.daysRemaining < 0) {
-      if (item.name != CHEESE_BRIE) {
-        if (item.name != TICKETS) {
-          if (item.quality > 0) {
-            if (item.name != LEGOLAS) {
-              item.quality = item.quality - 1;
-            }
-          }
-        } else {
-          item.quality = item.quality - item.quality;
-        }
-      } else {
-        if (item.quality < 50) {
-          ++item.quality;
-        }
+      if (item.name == TICKETS) {
+          item.quality = min(MAX_VALUE, item.quality + 1);
+          if (item.daysRemaining < CONCERT_THRESHOLD_1) { item.quality = min(MAX_VALUE, item.quality + 1); }
+          if (item.daysRemaining < CONCERT_THRESHOLD_2) { item.quality = min(MAX_VALUE, item.quality + 1); }
+          item.daysRemaining--;
+          if (item.daysRemaining < MIN_DAYS) { item.quality = MIN_VALUE; }
       }
-    }
   }
 }
 
