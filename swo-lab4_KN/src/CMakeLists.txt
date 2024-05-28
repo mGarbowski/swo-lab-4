@@ -5,6 +5,8 @@ add_library(
         items/Legendary.cc items/Legendary.h
         items/Ticket.cc items/Ticket.h
         items/CheeseBrie.cc items/CheeseBrie.h
+        items/ConjuredItem.cpp
+        items/ConjuredItem.h
 )
 
 target_include_directories(WhiteBear PUBLIC .)

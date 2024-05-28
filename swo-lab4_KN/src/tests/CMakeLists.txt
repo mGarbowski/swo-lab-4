@@ -16,6 +16,7 @@ add_executable(
         TicketUnitTests.cpp
         LegendaryUnitTests.cpp
         CheeseBrieUnitTests.cpp
+        ConjuredItemUnitTests.cpp
 )
 target_link_libraries(WhiteBearUnitTests WhiteBear Catch2::Catch2WithMain)
 add_test(NAME WhiteBearUnitTests COMMAND WhiteBearUnitTests)
