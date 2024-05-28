@@ -14,10 +14,6 @@ void Item::updateQuality() {
     }
 }
 
-void Item::decrementQuality(int amount) {
-    quality = max(MIN_VALUE, quality - amount);
-}
-
 const string &Item::getName() const {
     return name;
 }
@@ -28,6 +24,14 @@ int Item::getDaysRemaining() const {
 
 int Item::getQuality() const {
     return quality;
+}
+
+void Item::decrementQuality(int amount) {
+    quality = max(MIN_VALUE, quality - amount);
+}
+
+void Item::incrementQuality(int amount) {
+    quality = min(MAX_VALUE, quality + amount);
 }
 
 std::ostream &operator<<(std::ostream &s, Item &item) {

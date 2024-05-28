@@ -38,6 +38,8 @@ protected:
     int quality;
 
     void decrementQuality(int amount);
+
+    void incrementQuality(int amount);
 };
 
 ostream &operator<<(ostream &s, Item &item);
