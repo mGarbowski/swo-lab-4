@@ -1,6 +1,6 @@
-#include "WhiteBear.h"
 #include <memory>
 
+#include "WhiteBear.h"
 
 int main() {
   WhiteBear app;

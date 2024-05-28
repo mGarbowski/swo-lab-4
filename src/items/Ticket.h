@@ -7,11 +7,10 @@
 #define CONCERT_THRESHOLD_2 6
 
 class Ticket : public Item {
-public:
-    void updateQuality() override;
+ public:
+  void updateQuality() override;
 
-    Ticket(const std::string &name, int daysRemaining, int quality);
+  Ticket(const std::string &name, int daysRemaining, int quality);
 };
 
-
-#endif //SWO_WHITEBEAR_TICKET_H
+#endif  // SWO_WHITEBEAR_TICKET_H
