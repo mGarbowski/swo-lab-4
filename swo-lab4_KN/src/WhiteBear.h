@@ -10,25 +10,52 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <memory>
 
 using namespace std;
 
 class WhiteBear;
+
 
 class Item {
 public:
     Item(string name, int daysRemaining, int quality)
             : name(std::move(name)), daysRemaining(daysRemaining), quality(quality) {}
 
+    virtual ~Item() = default;
+
     std::string toString() const;
 
-    void updateQuality();
+    virtual void updateQuality();
 
 
-private:
+protected:
     string name;
     int daysRemaining;
     int quality;
+};
+
+using UItem = std::unique_ptr<Item>;
+
+class Ticket : public Item {
+public:
+    void updateQuality() override;
+
+    Ticket(const string &name, int daysRemaining, int quality);
+};
+
+class CheeseBrie : public Item {
+public:
+    CheeseBrie(const string &name, int daysRemaining, int quality);
+
+    void updateQuality() override;
+};
+
+class Legendary : public Item {
+public:
+    Legendary(const string &name, int daysRemaining, int quality);
+
+    void updateQuality() override;
 };
 
 
@@ -40,12 +67,12 @@ public:
 
     void printItems(std::ostream &output);
 
-    void addItem(const Item &item);
+    void addItem(UItem item);
 
     void updateQuality();
 
 private:
-    vector<Item> items_;
+    vector<UItem> items_;
 };
 
 const std::string CHEESE_BRIE = "Cheese Brie";
