@@ -1,10 +1,12 @@
-#include "catch2/catch_all.hpp"
+#include <memory>
+
 #include "ApprovalTests.hpp"
 #include "WhiteBear.h"
-#include "items/Ticket.h"
+#include "catch2/catch_all.hpp"
 #include "items/CheeseBrie.h"
+#include "items/ConjuredItem.h"
 #include "items/Legendary.h"
-#include <memory>
+#include "items/Ticket.h"
 
 TEST_CASE("WhiteBearApprovalTests", "First Test") {
 
@@ -14,6 +16,7 @@ TEST_CASE("WhiteBearApprovalTests", "First Test") {
     app.addItem(std::make_unique<CheeseBrie>("Cheese Brie", 10, 20));
     app.addItem(std::make_unique<Ticket>("Tickets to a concert", 10, 20));
     app.addItem(std::make_unique<Legendary>("Legolas, Hand of Gollum", 10, 20));
+    app.addItem(std::make_unique<ConjuredItem>("Conjured Item", 10, 40));
 
     std::stringstream output;
 
