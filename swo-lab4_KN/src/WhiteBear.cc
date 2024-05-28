@@ -55,7 +55,7 @@ void WhiteBear::printItems() {
 
 void WhiteBear::printItems(std::ostream& output) {
     for (auto &item: items_) {
-        output << item;
+        output << item << std::endl;
     }
     output << std::endl;
 }
