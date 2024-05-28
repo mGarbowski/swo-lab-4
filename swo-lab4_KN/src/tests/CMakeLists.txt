@@ -11,7 +11,8 @@ Include(FetchContent)
     endif()
 
 add_executable(WhiteBearUnitTests
-        ItemUnitTests.cpp)
+        ItemUnitTests.cpp
+        LegendaryUnitTests.cpp)
 target_link_libraries(WhiteBearUnitTests WhiteBear Catch2::Catch2WithMain)
 add_test(NAME WhiteBearUnitTests COMMAND WhiteBearUnitTests)
 
