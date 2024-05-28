@@ -13,13 +13,17 @@ public:
   Item(string name, int days_remaining, int quality)
       : t(name), d(days_remaining), v(quality) {}
   friend class WhiteBear;
-  friend std::ostream &operator<<(std::ostream &s, Item &item);
+  std::string toString() const;
+
 
 private:
   string t;
   int d;
   int v;
 };
+
+
+std::ostream &operator<<(std::ostream &s, Item &item);
 
 class WhiteBear {
 public:

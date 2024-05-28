@@ -1,8 +1,14 @@
 #include "WhiteBear.h"
+#include <sstream>
 
+std::string Item::toString() const {
+    stringstream result;
+    result << t << ", " << d << ", " << v;
+    return result.str();
+}
 
 std::ostream &operator<<(std::ostream &s, Item &item) {
-  s << item.t << ", " << item.d << ", " << item.v;
+  s << item.toString();
   return s;
 }
 
@@ -76,3 +82,4 @@ void WhiteBear::printItems(std::ostream& output) {
   }
   output << std::endl;
 }
+
