@@ -27,8 +27,5 @@ private:
     vector<UItem> items_;
 };
 
-const std::string CHEESE_BRIE = "Cheese Brie";
-const std::string TICKETS = "Tickets to a concert";
-const std::string LEGOLAS = "Legolas, Hand of Gollum";
-const std::string VEST = "+7 Yellow Vest";
+
 #endif // WHITE_BEAR_H

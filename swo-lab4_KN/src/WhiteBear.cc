@@ -3,12 +3,6 @@
 #include <memory>
 
 
-/**
-const std::string CHEESE_BRIE = "Cheese Brie";
-const std::string TICKETS = "Tickets to a concert";
-const std::string LEGOLAS = "Legolas, Hand of Gollum";
-*/
-
 void WhiteBear::updateQuality() {
     for (auto &item: items_) {
         item->updateQuality();
