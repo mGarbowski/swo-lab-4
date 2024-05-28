@@ -1,9 +1,11 @@
 #include "ConjuredItem.h"
 
 void ConjuredItem::updateQuality() {
-    quality = max(MIN_VALUE, quality - 2);
+    decrementQuality(2);
     daysRemaining--;
-    if (daysRemaining < MIN_DAYS) { quality = max(MIN_VALUE, quality - 2); }
+    if (daysRemaining < MIN_DAYS) {
+        decrementQuality(2);
+    }
 }
 
 ConjuredItem::ConjuredItem(const string &name, int daysRemaining, int quality) : Item(name, daysRemaining, quality) {}
