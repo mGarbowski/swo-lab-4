@@ -7,23 +7,23 @@ std::ostream &operator<<(std::ostream &s, Item &item) {
 }
 
 /**
-const std::string item1 = "Cheese Brie";
-const std::string item2 = "Tickets to a concert";
-const std::string item3 = "Legolas, Hand of Gollum";
+const std::string CHEESE_BRIE = "Cheese Brie";
+const std::string TICKETS = "Tickets to a concert";
+const std::string LEGOLAS = "Legolas, Hand of Gollum";
 */
 
 void WhiteBear::updateQuality() {
   for (auto & item : items_) {
-    if (item.t != item1 && item.t != item2) {
+    if (item.t != CHEESE_BRIE && item.t != TICKETS) {
       if (item.v > 0) {
-        if (item.t != item3) {
+        if (item.t != LEGOLAS) {
           item.v -= 1;
         }
       }
     } else {
       if (item.v < 50) {
         item.v = item.v + 1;
-        if (item.t == item2) {
+        if (item.t == TICKETS) {
           if (item.d < 11) {
             if (item.v < 50) {
               item.v += 1;
@@ -37,14 +37,14 @@ void WhiteBear::updateQuality() {
         }
       }
     }
-    if (item.t != item3) {
+    if (item.t != LEGOLAS) {
       --item.d;
     }
     if (item.d < 0) {
-      if (item.t != item1) {
-        if (item.t != item2) {
+      if (item.t != CHEESE_BRIE) {
+        if (item.t != TICKETS) {
           if (item.v > 0) {
-            if (item.t != item3) {
+            if (item.t != LEGOLAS) {
               item.v = item.v - 1;
             }
           }
