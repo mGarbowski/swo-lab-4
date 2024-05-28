@@ -8,8 +8,8 @@ std::string Item::toString() const {
 }
 
 std::ostream &operator<<(std::ostream &s, Item &item) {
-  s << item.toString();
-  return s;
+    s << item.toString();
+    return s;
 }
 
 
@@ -40,20 +40,20 @@ const std::string LEGOLAS = "Legolas, Hand of Gollum";
 */
 
 void WhiteBear::updateQuality() {
-  for (auto & item : items_) {
-      item.updateQuality();
-  }
+    for (auto &item: items_) {
+        item.updateQuality();
+    }
 }
 
 void WhiteBear::addItem(const Item &item) { items_.push_back(item); }
 
 void WhiteBear::printItems() {
-  for (auto & item : items_) {
-    std::cout << item << std::endl;
-  }
+    for (auto &item: items_) {
+        std::cout << item << std::endl;
+    }
 }
 
-void WhiteBear::printItems(std::ostream& output) {
+void WhiteBear::printItems(std::ostream &output) {
     for (auto &item: items_) {
         output << item << std::endl;
     }

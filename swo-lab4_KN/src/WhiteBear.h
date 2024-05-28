@@ -17,16 +17,18 @@ class WhiteBear;
 
 class Item {
 public:
-  Item(string name, int daysRemaining, int quality)
-      : name(std::move(name)), daysRemaining(daysRemaining), quality(quality) {}
-  std::string toString() const;
-  void updateQuality();
+    Item(string name, int daysRemaining, int quality)
+            : name(std::move(name)), daysRemaining(daysRemaining), quality(quality) {}
+
+    std::string toString() const;
+
+    void updateQuality();
 
 
 private:
-  string name;
-  int daysRemaining;
-  int quality;
+    string name;
+    int daysRemaining;
+    int quality;
 };
 
 
@@ -34,13 +36,16 @@ std::ostream &operator<<(std::ostream &s, Item &item);
 
 class WhiteBear {
 public:
-  void printItems();
-  void printItems(std::ostream& output);
-  void addItem(const Item &item);
-  void updateQuality();
+    void printItems();
+
+    void printItems(std::ostream &output);
+
+    void addItem(const Item &item);
+
+    void updateQuality();
 
 private:
-  vector<Item> items_;
+    vector<Item> items_;
 };
 
 const std::string CHEESE_BRIE = "Cheese Brie";
