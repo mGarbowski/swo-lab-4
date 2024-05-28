@@ -36,6 +36,8 @@ protected:
     string name;
     int daysRemaining;
     int quality;
+
+    void decrementQuality(int amount);
 };
 
 ostream &operator<<(ostream &s, Item &item);

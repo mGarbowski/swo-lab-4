@@ -7,9 +7,15 @@ string Item::toString() const {
 }
 
 void Item::updateQuality() {
-    quality = max(MIN_VALUE, quality - 1);
+    decrementQuality(1);
     daysRemaining--;
-    if (daysRemaining < MIN_DAYS) { quality = max(MIN_VALUE, quality - 1); }
+    if (daysRemaining < MIN_DAYS) {
+        decrementQuality(1);
+    }
+}
+
+void Item::decrementQuality(int amount) {
+    quality = max(MIN_VALUE, quality - amount);
 }
 
 const string &Item::getName() const {
