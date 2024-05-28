@@ -1,6 +1,9 @@
 #include "catch2/catch_all.hpp"
 #include "ApprovalTests.hpp"
 #include "WhiteBear.h"
+#include "items/Ticket.h"
+#include "items/CheeseBrie.h"
+#include "items/Legendary.h"
 #include <memory>
 
 TEST_CASE("WhiteBearApprovalTests", "First Test") {
