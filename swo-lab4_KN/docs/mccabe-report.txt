@@ -1,0 +1,5 @@
+1	1	2	4	4	swo-lab4_KN/src/WhiteBear.cc(4): operator
+19	19	27	15	47	swo-lab4_KN/src/WhiteBear.cc(15): WhiteBear::updateQuality
+1	1	1	63	1	swo-lab4_KN/src/WhiteBear.cc(63): WhiteBear::addItem
+2	2	4	65	5	swo-lab4_KN/src/WhiteBear.cc(65): WhiteBear::printItems
+2	2	6	71	8	swo-lab4_KN/src/WhiteBear.cc(71): WhiteBear::printItems
