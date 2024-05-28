@@ -3,7 +3,7 @@
 
 std::string Item::toString() const {
     stringstream result;
-    result << t << ", " << d << ", " << v;
+    result << name << ", " << daysRemaining << ", " << quality;
     return result.str();
 }
 
@@ -20,46 +20,46 @@ const std::string LEGOLAS = "Legolas, Hand of Gollum";
 
 void WhiteBear::updateQuality() {
   for (auto & item : items_) {
-    if (item.t != CHEESE_BRIE && item.t != TICKETS) {
-      if (item.v > 0) {
-        if (item.t != LEGOLAS) {
-          item.v -= 1;
+    if (item.name != CHEESE_BRIE && item.name != TICKETS) {
+      if (item.quality > 0) {
+        if (item.name != LEGOLAS) {
+          item.quality -= 1;
         }
       }
     } else {
-      if (item.v < 50) {
-        item.v = item.v + 1;
-        if (item.t == TICKETS) {
-          if (item.d < 11) {
-            if (item.v < 50) {
-              item.v += 1;
+      if (item.quality < 50) {
+        item.quality = item.quality + 1;
+        if (item.name == TICKETS) {
+          if (item.daysRemaining < 11) {
+            if (item.quality < 50) {
+              item.quality += 1;
             }
           }
-          if (item.d < 6) {
-            if (item.v < 50) {
-              item.v++;
+          if (item.daysRemaining < 6) {
+            if (item.quality < 50) {
+              item.quality++;
             }
           }
         }
       }
     }
-    if (item.t != LEGOLAS) {
-      --item.d;
+    if (item.name != LEGOLAS) {
+      --item.daysRemaining;
     }
-    if (item.d < 0) {
-      if (item.t != CHEESE_BRIE) {
-        if (item.t != TICKETS) {
-          if (item.v > 0) {
-            if (item.t != LEGOLAS) {
-              item.v = item.v - 1;
+    if (item.daysRemaining < 0) {
+      if (item.name != CHEESE_BRIE) {
+        if (item.name != TICKETS) {
+          if (item.quality > 0) {
+            if (item.name != LEGOLAS) {
+              item.quality = item.quality - 1;
             }
           }
         } else {
-          item.v = item.v - item.v;
+          item.quality = item.quality - item.quality;
         }
       } else {
-        if (item.v < 50) {
-          ++item.v;
+        if (item.quality < 50) {
+          ++item.quality;
         }
       }
     }
@@ -78,7 +78,7 @@ void WhiteBear::printItems(std::ostream& output) {
   for (auto & item : items_) {
     //output << *i << std::endl;
 	std::string s;
-	output << item.t << ", " << item.d << ", " << item.v << std::endl;
+	output << item.name << ", " << item.daysRemaining << ", " << item.quality << std::endl;
   }
   output << std::endl;
 }

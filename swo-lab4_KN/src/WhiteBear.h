@@ -2,6 +2,7 @@
 #define WHITE_BEAR_H
 #include <iostream>
 #include <string>
+#include <utility>
 #include <vector>
 
 using namespace std;
@@ -10,16 +11,16 @@ class WhiteBear;
 
 class Item {
 public:
-  Item(string name, int days_remaining, int quality)
-      : t(name), d(days_remaining), v(quality) {}
+  Item(string name, int daysRemaining, int quality)
+      : name(std::move(name)), daysRemaining(daysRemaining), quality(quality) {}
   friend class WhiteBear;
   std::string toString() const;
 
 
 private:
-  string t;
-  int d;
-  int v;
+  string name;
+  int daysRemaining;
+  int quality;
 };
 
 
