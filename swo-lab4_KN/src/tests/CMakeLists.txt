@@ -12,7 +12,8 @@ Include(FetchContent)
 
 add_executable(WhiteBearUnitTests
         ItemUnitTests.cpp
-        LegendaryUnitTests.cpp)
+        LegendaryUnitTests.cpp
+        TicketUnitTests.cpp)
 target_link_libraries(WhiteBearUnitTests WhiteBear Catch2::Catch2WithMain)
 add_test(NAME WhiteBearUnitTests COMMAND WhiteBearUnitTests)
 
