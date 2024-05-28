@@ -10,9 +10,12 @@ Include(FetchContent)
         add_subdirectory("${catch2_SOURCE_DIR}" "${catch2_BINARY_DIR}")
     endif()
 
-add_executable(WhiteBearUnitTests
+add_executable(
+        WhiteBearUnitTests
         ItemUnitTests.cpp
-        LegendaryUnitTests.cpp)
+        LegendaryUnitTests.cpp
+        CheeseBrieUnitTests.cpp
+)
 target_link_libraries(WhiteBearUnitTests WhiteBear Catch2::Catch2WithMain)
 add_test(NAME WhiteBearUnitTests COMMAND WhiteBearUnitTests)
 
