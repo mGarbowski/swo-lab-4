@@ -12,6 +12,18 @@ void Item::updateQuality() {
     if (daysRemaining < MIN_DAYS) { quality = max(MIN_VALUE, quality - 1); }
 }
 
+const string &Item::getName() const {
+    return name;
+}
+
+int Item::getDaysRemaining() const {
+    return daysRemaining;
+}
+
+int Item::getQuality() const {
+    return quality;
+}
+
 std::ostream &operator<<(std::ostream &s, Item &item) {
     s << item.toString();
     return s;

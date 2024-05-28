@@ -26,6 +26,11 @@ public:
 
     virtual void updateQuality();
 
+    const string &getName() const;
+
+    int getDaysRemaining() const;
+
+    int getQuality() const;
 
 protected:
     string name;
